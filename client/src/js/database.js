@@ -47,8 +47,8 @@ export const deleteDb = async (id) => {
   const store = tx.objectStore('contact');
   const request = store.delete(id);
   const result = await request;
+  console.log('result.value', result);
   return result?.value;
-  console.log('database deleted', result);
 };
 
 initdb();
