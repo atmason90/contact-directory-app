@@ -22,14 +22,16 @@ module.exports = () => {
     plugins: [
      new HtmlWebpackPlugin({
        template: './index.html',
-       title: 'Contact Directory'
+       title: 'Contact Cards'
      }),
      new InjectManifest({
        swSrc: './src-sw.js',
        swDest: 'src-sw.js'
      }),
      new WebpackPwaManifest({
-       name: 'Contact Directory',
+       fingerprints: false,
+       inject: true,
+       name: 'Contact Cards',
        short_name: 'Contacts',
        description: 'A way to manage all of your contacts',
        background_color: '#272822',
