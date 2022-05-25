@@ -45,8 +45,9 @@ export const deleteDb = async (id) => {
   const contactDb = await openDB('contact', 1);
   const tx = contactDb.transaction('contact', 'readwrite');
   const store = tx.objectStore('contact');
-  const request = store.delete();
+  const request = store.delete(id);
   const result = await request;
+  return result?.value;
   console.log('database deleted', result);
 };
 
